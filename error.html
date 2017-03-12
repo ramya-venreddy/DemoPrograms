@@ -1,0 +1,36 @@
+<html>
+<head>
+ <script type="text/javascript">
+function myFunc(){
+   var a = 100;
+               
+     try {
+           alert("Value of is : " + a );
+         }
+               
+          catch ( e ) {
+          alert("Error: " + e.description );
+              }
+               
+         finally {
+                  alert("Finally will always execute" );
+               }
+            }
+ </script>
+  <form>
+         <input type="button" value="Click Me" onclick="myFunc();" />
+</form>
+ </head>
+   <body>
+
+      <script type="text/javascript">
+            window.onerror = function (msg, url, line) {
+               alert("Message : " + msg );
+               alert("url : " + url );
+               alert("Line number : " + line );
+            }
+      </script>
+
+ </body>
+</html>
+

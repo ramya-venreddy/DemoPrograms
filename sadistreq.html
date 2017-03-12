@@ -1,0 +1,21 @@
+<html>
+	<head>
+		</head>
+		<body>
+			<script>
+			function printme(){
+			
+			var x=document.getElementById('name').value;
+		
+			document.getElementById('test').innerHTML = x;
+			}
+			</script>
+	<form ><div id="formname">
+	 <label for="Enter the name :" />Enter the name</label>
+	 <input type="text" id="name" name="name1" /> <br/>
+	</div>
+	<p id="test"></p>
+	<input type="button" onClick="printme()" value="submit" />	
+</form>
+</body>
+</html>
