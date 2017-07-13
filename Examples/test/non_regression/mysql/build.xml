@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<project name="mysql-test" default="all" basedir=".">
+
+    <target name="init">
+        <property  name="properties.file" value="${user.home}/build.properties"/>
+        <property file="${user.home}/build.properties"/>
+        <fail message="the file ${properties.file} must define mysql.driver.jar" unless="mysql.driver.jar"/>
+        <property name="mysql.driver" value="com.mysql.jdbc.Driver"/>
+        <property name="mysql.url" value="jdbc:mysql://localhost:3306/soup"/>
+        <property name="mysql.userid" value=""/>
+        <property name="mysql.password" value=""/>
+    </target>
+
+    <target name="db" depends="init">
+        <sql driver="${mysql.driver}" url="${mysql.url}" userid="${mysql.userid}" password="${mysql.password}" onerror="continue">
+            <classpath location="${mysql.driver.jar}"/>
+            DROP TABLE Animal;
+            DROP TABLE TableIDCounters;
+            CREATE TABLE Animal
+            (
+                 ID INTEGER,
+                 species VARCHAR(40),
+                 quantity INTEGER,
+                 buildingID INTEGER
+            );
+            CREATE TABLE TableIDCounters
+            (
+                 tableName VARCHAR(80),
+                 counter INTEGER,
+                 skip INTEGER
+            );
+            INSERT INTO TableIDCounters(tableName, counter , skip) values ('Animal',22,100);
+        </sql>
+    </target>
+
+    <target name="jenny" depends="init">
+        <java failonerror="true" classname="com.javaranch.db.Jenny" >
+            <arg value="jenny.properties"/>
+            <arg value="Driver=${mysql.driver}"/>
+            <arg value="URL=${mysql.url}"/>
+            <arg value="UserName=${mysql.userid}"/>
+            <arg value="Password=${mysql.password}"/>
+            <arg value="FacadeDriver=${mysql.driver}"/>
+            <arg value="FacadeURL=${mysql.url}"/>
+            <classpath>
+               <pathelement location="../../../jr.jar"/>
+               <pathelement location="${mysql.driver.jar}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="all" depends="init,db,jenny"/>
+
+</project>

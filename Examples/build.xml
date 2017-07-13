@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+
+<!--using Ant 1.6-->
+<project name="jr" default="build" basedir=".">
+
+  <target name="init">
+    <property file="${user.home}/build.properties"/>
+    <property name="src.dir" location="src"/>
+    <property name="build.dir" location="build"/>
+    <property name="classes.dir" location="${build.dir}/classes"/>
+    <property name="test.classes.dir" location="${build.dir}/testclasses"/>
+    <property name="dist.dir" location="${build.dir}/dist"/>
+    <property name="test.src.dir" location="test"/>
+    <property name="unit.test.src.dir" location="${test.src.dir}/unit"/>
+    <property name="function.test.src.dir" location="${test.src.dir}/function"/>
+    <property name="docs.dir" location="${build.dir}/docs"/>
+    <property name="junit.home" location="/junit3.8.1"/>
+    <available property="j2ee.exists" file="${j2ee.home}/j2ee.jar" type="file"/>
+  </target>
+
+  <target name="initdirs" depends="init">
+    <mkdir dir="${build.dir}"/>
+    <mkdir dir="${classes.dir}"/>
+    <mkdir dir="${test.classes.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${docs.dir}"/>
+  </target>
+
+  <target name="clean" depends="init" description="delete all generated files">
+    <delete includeEmptyDirs="true" dir="${build.dir}"/>
+  </target>
+
+  <target name='complain' description="complains unless all necessary files are present" depends="init"
+          unless="j2ee.exists">
+    <fail message="Try adding 'j2ee.jar' to ${j2ee.home}."/>
+  </target>
+
+  <target name="compile" depends="initdirs">
+    <fail message="j2ee.home must be defined in file ${user.home}/build.properties reflecting where j2ee.jar can be found (e.g. j2ee.home=/java)" unless="j2ee.home"/>
+    <antcall target="complain"/>
+    <javac srcdir="${src.dir}"
+           destdir="${classes.dir}"
+           classpath="${j2ee.home}/j2ee.jar"/>
+  </target>
+
+  <target name="jar" depends="compile">
+    <echo level="info" message="Creating/overwriting jr.jar"/>
+    <jar destfile="${dist.dir}/jr.jar">
+      <zipfileset dir="${classes.dir}" includes="**/*.class"/>
+      <zipfileset dir="${src.dir}" prefix="src/"/>
+      <zipfileset dir="${test.src.dir}" prefix="test/"/>
+      <zipfileset file="build.xml"/>
+    </jar>
+  </target>
+
+  <target name="javadoc" depends="jar" description="make the java docs">
+    <javadoc
+        packagenames="com.javaranch.*"
+        sourcepath="${src.dir}"
+        destdir="${docs.dir}"
+        author="true"
+        version="true"
+        use="true"
+        windowtitle="JavaRanch common and Jenny">
+      <doctitle><![CDATA[<h2>JavaRanch common and Jenny</h2>]]></doctitle>
+      <bottom><![CDATA[<i>Copyright &#169;2006 Paul Wheaton All Rights Reserved</i>]]></bottom>
+    </javadoc>
+  </target>
+
+  <target name="build" depends="jar" description="compiles and jars the project"/>
+
+  <target name="all" depends="clean, build" description="does a clean and a build"/>
+
+  <target name="test" depends="build" description="run unit tests">
+    <javac srcdir="${unit.test.src.dir}" destdir="${test.classes.dir}" classpath="${junit.home}/junit.jar;${classes.dir}"/>
+    <junit haltonfailure="on" fork="yes">
+      <classpath>
+        <pathelement location="${test.classes.dir}"/>
+        <pathelement location="${classes.dir}"/>
+        <pathelement path="j2ee.jar"/>
+      </classpath>
+      <formatter type="brief" usefile="false"/>
+      <batchtest fork="yes">
+        <fileset dir="${unit.test.src.dir}" includes="**/Test*"/>
+      </batchtest>
+    </junit>
+  </target>
+
+  <target name="fntest" depends="build" description="run functional tests">
+    <javac srcdir="${function.test.src.dir}" destdir="${test.classes.dir}" classpath="${junit.home}/junit.jar;${classes.dir}"/>
+    <junit haltonfailure="on" fork="yes">
+      <classpath>
+        <pathelement location="${test.classes.dir}"/>
+        <pathelement location="${classes.dir}"/>
+        <pathelement path="j2ee.jar"/>
+      </classpath>
+      <formatter type="brief" usefile="false"/>
+      <batchtest fork="yes">
+        <fileset dir="${function.test.src.dir}" includes="**/Test*"/>
+      </batchtest>
+    </junit>
+  </target>
+
+</project>

@@ -1,0 +1,23 @@
+<p>The spatial element in Jenny continues with the principles of Jenny:</p>
+
+<ul>
+
+   <p>Provide a facade so that spatial will work the same on all platforms.</p>
+
+   <p>Provide an easy to use interface.</p>
+
+</ul>
+
+<p>To use Jenny Spatial, you must specify "UseSpatial=true" in the Jenny properties file.  Further, you must specify
+the type of each spatial column.</p>
+
+<p>All of Jenny utilty classes have been extended to include extra fields for SpatialPoint, SpatialPolygon and
+SpatialPolygon[].</p>
+
+<p>Since Jenny's return types are string based and spatial types are compound objects, a format for storing
+compound information was needed.  I'm generally not a fan of XML, but a new product has come out that has
+changed my mind:  XStream (<a href='http://xstream.codehause.org'>xstream.codehause.org</a>).  The Jenny generated
+facade wraps XStream to provide two methods: toXML() and fromXML().  So when you are handed XML, one method
+gives you object.</p>
+
+

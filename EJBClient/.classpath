@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="/Applications/downloads/glassfish3/glassfish/modules/javax.ejb.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/jboss-5.0.0.GA/server/default/deploy/EJBDemo.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/jboss-5.0.0.GA/lib/jboss-deployers-client.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/jboss-5.0.0.GA/client/jboss-client.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/jboss-5.0.0.GA/client/jbossall-client.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

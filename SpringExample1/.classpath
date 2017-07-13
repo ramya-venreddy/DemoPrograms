@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/java"/>
+	<classpathentry including="**/*.java" kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="var" path="M2_REPO/junit/junit/3.8.1/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.core_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.aop_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.asm_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.beans_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.context_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.apache.ant_1.8.3.v20120321-1730/lib/ant-apache-log4j.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.apache.ant_1.8.3.v20120321-1730/lib/ant-commons-logging.jar"/>
+	<classpathentry kind="lib" path="/Users/Aravind/Downloads/restlet-jse-2.0.15/lib/org.apache.commons.logging_1.1/org.apache.commons.logging.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/com.springsource.org.aspectj.weaver_1.6.10.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.apache.ant_1.8.3.v20120321-1730/lib/ant-antlr.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.context.support_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.aspectj.runtime.source_1.7.2.20120920133900.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

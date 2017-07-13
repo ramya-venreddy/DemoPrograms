@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="/Users/Aravind/Downloads/restlet-jse-2.0.15/lib/org.springframework_3.0/org.springframework.web.jar"/>
+	<classpathentry kind="lib" path="/Users/Aravind/Downloads/restlet-jse-2.0.15/lib/org.springframework_3.0/org.springframework.webmvc.jar"/>
+	<classpathentry kind="lib" path="/Users/Aravind/Downloads/restlet-jse-2.0.15/lib/org.apache.commons.logging_1.1/org.apache.commons.logging.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.aop_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.aopalliance_1.0.0.v201105210816.jar"/>
+	<classpathentry kind="lib" path="/Users/Aravind/Downloads/cglib-2.2.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.core_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.asm_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.beans_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.context_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.context.support_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/springsource/sts-3.1.0.RELEASE/plugins/org.springframework.expression_3.1.1.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Applications/downloads/eclipse 3/plugins/org.objectweb.asm_3.1.0.v200803061910.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
